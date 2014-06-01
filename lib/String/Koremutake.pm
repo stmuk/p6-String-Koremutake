@@ -46,4 +46,32 @@ class String::Koremutake:ver<0.1> {
 
   }
 
+  method integer-to-koremutake($integer) {
+
+    fail "No integer given" unless defined $integer; # XXX
+    fail 'Negative numbers not acceptable' if $integer < 0;
+
+    my @numbers;
+
+    @numbers = (0) if $integer == 0;
+
+    while ($integer != 0) {
+      @numbers.push( $integer % 128);
+      $integer = int($integer/128);
+    }
+    return self._numbers-to-koremutake([reverse @numbers]);
+  }
+
+ method koremutake-to-integer($string) {
+  fail "No koremutake string given" unless defined $string; # XXX 
+
+  my $numbers = self._koremutake-to-numbers($string);
+  my $integer = 0;
+  while (@$numbers) {
+    my $n = shift @$numbers;
+    $integer = ($integer * 128) + $n;
+  }
+  return $integer;
+}
+
 }
