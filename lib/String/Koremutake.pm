@@ -46,32 +46,29 @@ class String::Koremutake:ver<0.1> {
 
   }
 
-  method integer-to-koremutake($integer) {
-
-    fail "No integer given" unless defined $integer; # XXX
-    fail 'Negative numbers not acceptable' if $integer < 0;
+  method integer-to-koremutake(Int:D $integer is copy) {
 
     my @numbers;
-
     @numbers = (0) if $integer == 0;
 
     while ($integer != 0) {
       @numbers.push( $integer % 128);
-      $integer = int($integer/128);
+      $integer = floor($integer/128);
     }
+
     return self._numbers-to-koremutake([reverse @numbers]);
   }
 
- method koremutake-to-integer($string) {
-  fail "No koremutake string given" unless defined $string; # XXX 
+  method koremutake-to-integer(Str:D $string) {
 
-  my $numbers = self._koremutake-to-numbers($string);
-  my $integer = 0;
-  while (@$numbers) {
-    my $n = shift @$numbers;
-    $integer = ($integer * 128) + $n;
+    my $numbers = self._koremutake-to-numbers($string);
+    my $integer = 0;
+
+    for @$numbers -> $number {
+      $integer = ($integer * 128) + $number;
+    }
+
+    return $integer;
   }
-  return $integer;
 }
-
-}
+# vim: filetype=perl6:
