@@ -5,6 +5,8 @@ BEGIN { @*INC.unshift( 'lib' ) }
 use Test;
 use String::Koremutake;
 
+plan 6;
+
 my $k = String::Koremutake.new;
 
 is $k.integer-to-koremutake(0), 'ba','got ba';
