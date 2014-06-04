@@ -47,7 +47,6 @@ class String::Koremutake:ver<0.1> {
   }
 
   method integer-to-koremutake(Int:D $integer is copy) {
-
     my @numbers;
     @numbers = (0) if $integer == 0;
 
@@ -60,7 +59,6 @@ class String::Koremutake:ver<0.1> {
   }
 
   method koremutake-to-integer(Str:D $string) {
-
     my $numbers = self._koremutake-to-numbers($string);
     my $integer = 0;
 
