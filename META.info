@@ -3,6 +3,6 @@
     "version"     : "0.1",
     "description" : "Converts to and from Koremutake Memorable Random Strings. ",
     "depends"     : [],
-    "source-url"  : "git@github.com:stmuk/p6-String-Koremutake.git"
+    "source-url"  : "git://github.com/stmuk/p6-String-Koremutake.git"
     "author"      : "Steve Mynott"
 }
