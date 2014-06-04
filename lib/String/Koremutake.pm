@@ -19,7 +19,7 @@ class String::Koremutake:ver<0.1> {
     $number++;
   }
 
-  method _numbers-to-koremutake($numbers) {
+  method !numbers-to-koremutake($numbers) {
     my $string;
     for @$numbers -> $n {
       fail "0 <= $n <= 127" unless (0 <= $n) && ($n <= 127);
@@ -28,7 +28,7 @@ class String::Koremutake:ver<0.1> {
     return $string;
   }
 
-  method _koremutake-to-numbers($string) {
+  method !koremutake-to-numbers($string) {
     my @numbers;
     my $phoneme;
     my @chars = $string.split('');
@@ -55,11 +55,11 @@ class String::Koremutake:ver<0.1> {
       $integer = floor($integer/128);
     }
 
-    return self._numbers-to-koremutake([reverse @numbers]);
+    return self!numbers-to-koremutake([reverse @numbers]);
   }
 
   method koremutake-to-integer(Str:D $string) {
-    my $numbers = self._koremutake-to-numbers($string);
+    my $numbers = self!koremutake-to-numbers($string);
     my $integer = 0;
 
     for @$numbers -> $number {
