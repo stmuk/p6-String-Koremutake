@@ -1,5 +1,5 @@
 {
-    "name"        : "String-Koremutake",
+    "name"        : "String::Koremutake",
     "version"     : "0.1",
     "description" : "Converts to and from Koremutake Memorable Random Strings. ",
     "depends"     : [],
