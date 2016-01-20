@@ -1,4 +1,5 @@
 {
+    "perl"        : "6.c",
     "name"        : "String::Koremutake",
     "version"     : "0.2",
     "description" : "Converts to and from Koremutake Memorable Random Strings. ",
